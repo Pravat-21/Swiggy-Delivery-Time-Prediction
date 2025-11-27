@@ -1,5 +1,5 @@
 # local package
--e .
+#-e .
 
 # external requirements
 
@@ -8,8 +8,10 @@ pandas
 numpy
 matplotlib
 plotly
+nbformat>=4.2.0
 seaborn
 missingno
 scikit-learn
 ipykernel
+haversine
 
