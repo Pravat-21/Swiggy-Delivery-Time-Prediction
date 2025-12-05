@@ -95,3 +95,4 @@ def basic_data_cleaning(df):
     df.drop(columns=['rider_city','Type_of_order','order_in_weekend','order_time_hr','Time_res_pickup','Restaurant_latitude','Restaurant_longitude','Delivery_location_latitude','Delivery_location_longitude','Order_Date','Time_Orderd','Time_Order_picked'],inplace=True)
     
     return df
+
