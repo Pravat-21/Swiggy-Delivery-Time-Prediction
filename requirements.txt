@@ -18,4 +18,6 @@ statsmodels
 mlflow<3
 dagshub
 optuna
+xgboost
+lightgbm
 
