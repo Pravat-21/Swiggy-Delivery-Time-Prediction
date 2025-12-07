@@ -20,4 +20,6 @@ dagshub
 optuna
 xgboost
 lightgbm
+dvc
+dvc[dagshub]
 
