@@ -1,0 +1,2 @@
+data_cleaning:
+  test_size: 0.20

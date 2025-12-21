@@ -1,0 +1,13 @@
+stages:
+  data_cleaning:
+
+    cmd: python src/data/data_cleaning.py
+    deps:
+    - data/raw
+    - src/data/data_cleaning.py
+    params:
+    - data_cleaning.test_size
+    outs:
+    - data/cleaned
+    
+
