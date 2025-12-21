@@ -21,3 +21,21 @@ stages:
       md5: 5816d603bd60674df25754137470cc3b.dir
       size: 3516505
       nfiles: 2
+  feature_engineering:
+    cmd: python src/features/feature_engineering.py
+    deps:
+    - path: data/cleaned
+      hash: md5
+      md5: 5816d603bd60674df25754137470cc3b.dir
+      size: 3516505
+      nfiles: 2
+    - path: src/features/feature_engineering.py
+      hash: md5
+      md5: bcfc179b7370e0b0ef61a98c82e14dc9
+      size: 8215
+    outs:
+    - path: data/processed
+      hash: md5
+      md5: 25b8f4c29c7f3c0923649495338f9331.dir
+      size: 19887847
+      nfiles: 2

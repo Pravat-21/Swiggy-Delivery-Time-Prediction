@@ -3,8 +3,11 @@ import numpy as np
 import os
 import sys
 import yaml
+import pickle
 from src.logger import file_logging, console_logging
 from src.exception import CustomException
+from sklearn.pipeline import Pipeline
+from sklearn.base import BaseEstimator as Model
 
 file_logger = file_logging("src_Utils_file")
 con_logger = console_logging("src_Utils_console")
@@ -65,4 +68,42 @@ def load_params()->dict:
         file_logger.error("Error has been occured in load_params function from utils.py")
         con_logger.error("Error has been occured in load_params function from utils.py")
         raise CustomException(e,sys)
+    
+def save_processor(processor:Pipeline, path:str)->None:
+    """This function saves processor in given file path"""
+
+    file_logger.info("Now in save_processor function from utils.py")
+    con_logger.info("Now in save_processor function from utils.py")
+
+    try:
+        with open(path,'wb') as file:
+            pickle.dump(processor,file)
+
+        file_logger.info("successfully dumped the processor.")
+        con_logger.info("successfully dumped the processor.")
+
+    except Exception as e:
+        file_logger.error("Error has been occured in save_processor function from utils.py")
+        con_logger.error("Error has been occured in save_processor function from utils.py")
+        raise CustomException(e,sys)
+    
+def save_model(model:Model, path:str)->None:
+    """This function saves model in given file path"""
+
+    file_logger.info("Now in save_model function from utils.py")
+    con_logger.info("Now in save_model function from utils.py")
+
+    try:
+        with open(path,'wb') as file:
+            pickle.dump(model,file)
+
+        file_logger.info("successfully dumped the model.")
+        con_logger.info("successfully dumped the model.")
+
+    except Exception as e:
+        file_logger.error("Error has been occured in save_model function from utils.py")
+        con_logger.error("Error has been occured in save_model function from utils.py")
+        raise CustomException(e,sys)
+
+
 

@@ -9,5 +9,15 @@ stages:
     - data_cleaning.test_size
     outs:
     - data/cleaned
+
+  feature_engineering:
+
+    cmd: python src/features/feature_engineering.py
+    deps:
+    - data/cleaned
+    - src/features/feature_engineering.py
+    outs:
+    - data/processed
     
+
 
