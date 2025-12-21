@@ -6,8 +6,8 @@ import yaml
 from src.logger import file_logging, console_logging
 from src.exception import CustomException
 
-file_logger = file_logging("src_Utils")
-con_logger = console_logging("src_Utils")
+file_logger = file_logging("src_Utils_file")
+con_logger = console_logging("src_Utils_console")
 
 
 def save_data(df:pd.DataFrame, path:str)-> None:

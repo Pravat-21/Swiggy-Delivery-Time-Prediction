@@ -16,8 +16,8 @@ from pathlib import Path
 from sklearn.preprocessing import PowerTransformer
 from sklearn.model_selection import train_test_split
 
-file_logger = file_logging("Data Cleaning")
-console_logger = console_logging("Data Cleaning")
+file_logger = file_logging("Data Cleaning_file")
+console_logger = console_logging("Data Cleaning_console")
 
 root_path = Path(__file__).parent.parent.parent
 # print(root_path)

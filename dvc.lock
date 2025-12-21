@@ -10,8 +10,8 @@ stages:
       nfiles: 3
     - path: src/data/data_cleaning.py
       hash: md5
-      md5: 79acc30755e8ae531956894e55b1b107
-      size: 9091
+      md5: 81150f1af5898c79e28a0246d2730fdd
+      size: 9104
     params:
       params.yaml:
         data_cleaning.test_size: 0.2
