@@ -160,9 +160,11 @@ def main():
         root = Path(__file__).parent.parent.parent
         train_path = root/"data"/"processed"/"processed_train.csv"
         test_path = root/"data"/"processed"/"processed_test.csv"
+        processor_path = root/"models"/"processor.pkl"
 
         save_data(train_transform_df,train_path)
         save_data(test_transform_df,test_path)
+        save_processor(processor,processor_path)
     
     except Exception as e:
         file_logger.error(f"Error has been occured into main() function in feature_engineering module & the error is {e}")

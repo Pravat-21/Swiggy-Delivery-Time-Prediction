@@ -1,2 +1,21 @@
 data_cleaning:
   test_size: 0.20
+
+train:
+  Random_Forest:
+    n_estimators: 908
+    max_depth: 18
+    min_samples_split: 7
+    min_samples_leaf: 20
+    max_features: Null
+    bootstrap: True
+    random_state: 42
+
+  LGBM:
+    max_depth: 20
+    learning_rate: 0.6444557982018029
+    subsample: 0.5546625727181287
+    min_child_weight: 8
+    min_split_gain: 0.2009058221053993
+    reg_lambda: 10.798160523492442
+    random_state: 42

@@ -18,6 +18,21 @@ stages:
     - src/features/feature_engineering.py
     outs:
     - data/processed
+    - models/processor.pkl
+
+  model_building:
+
+    cmd: python src/model/model_building.py
+    deps:
+    - data/processed
+    - src/model/model_building.py
+    params:
+    - train.Random_Forest
+    - train.LGBM
+    outs:
+    - models/final_model.pkl
+    - models/stacking_regressor.pkl
+    - models/stacking_transformer.pkl
     
 
 

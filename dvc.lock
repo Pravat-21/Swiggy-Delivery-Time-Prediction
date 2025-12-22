@@ -31,11 +31,58 @@ stages:
       nfiles: 2
     - path: src/features/feature_engineering.py
       hash: md5
-      md5: bcfc179b7370e0b0ef61a98c82e14dc9
-      size: 8215
+      md5: 14d62505c54eaf3a147e52eb02c90cf5
+      size: 8321
     outs:
     - path: data/processed
       hash: md5
       md5: 25b8f4c29c7f3c0923649495338f9331.dir
       size: 19887847
       nfiles: 2
+    - path: models/processor.pkl
+      hash: md5
+      md5: 4c77d38fe0f972bd5c5f0f7abcec9f65
+      size: 4544
+  model_building:
+    cmd: python src/model/model_building.py
+    deps:
+    - path: data/processed
+      hash: md5
+      md5: 25b8f4c29c7f3c0923649495338f9331.dir
+      size: 19887847
+      nfiles: 2
+    - path: src/model/model_building.py
+      hash: md5
+      md5: b76c296f6010c4bf40a1d8d2f4f6a086
+      size: 4908
+    params:
+      params.yaml:
+        train.LGBM:
+          max_depth: 20
+          learning_rate: 0.6444557982018029
+          subsample: 0.5546625727181287
+          min_child_weight: 8
+          min_split_gain: 0.2009058221053993
+          reg_lambda: 10.798160523492442
+          random_state: 42
+        train.Random_Forest:
+          n_estimators: 908
+          max_depth: 18
+          min_samples_split: 7
+          min_samples_leaf: 20
+          max_features:
+          bootstrap: true
+          random_state: 42
+    outs:
+    - path: models/final_model.pkl
+      hash: md5
+      md5: 62ef05fd4980a7af463b525cd0ac912e
+      size: 96245305
+    - path: models/stacking_regressor.pkl
+      hash: md5
+      md5: 689fd6460bede80a7cb023dbba830398
+      size: 96222367
+    - path: models/stacking_transformer.pkl
+      hash: md5
+      md5: 2e9b3484e69db03700bd7cfc57b5b338
+      size: 663
