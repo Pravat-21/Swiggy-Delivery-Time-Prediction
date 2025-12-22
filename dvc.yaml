@@ -33,6 +33,19 @@ stages:
     - models/final_model.pkl
     - models/stacking_regressor.pkl
     - models/stacking_transformer.pkl
+
+  model_evaluation:
+
+    cmd: python src/model/model_evaluation.py
+    deps:
+    - models/final_model.pkl
+    - data/processed
+    - src/model/model_evaluation.py
+    metrics:
+    - reports/eval_metrics.json
+    outs:
+    - reports/models_info.json
+    
     
 
 

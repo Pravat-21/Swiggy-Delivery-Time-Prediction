@@ -105,5 +105,19 @@ def save_model(model:Model, path:str)->None:
         con_logger.error("Error has been occured in save_model function from utils.py")
         raise CustomException(e,sys)
 
+def load_model(file_path: str)->Model:
+    """Load the trained model from a file."""
+    
+    file_logger.info("In load_model function from model_evaluation module....")
+    con_logger.info("In load_model function from model_evaluation module....")
 
+    try:
+        with open(file_path, 'rb') as file:
+            model = pickle.load(file)
+
+        file_logger.info(f'Model loaded from {file_path}')
+        return model
+    except Exception as e:
+        file_logger.error(f"In load_model function from load_model(), error has been ocurred & error is {e}")
+        raise CustomException(e,sys)
 
