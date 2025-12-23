@@ -45,6 +45,13 @@ stages:
     - reports/eval_metrics.json
     outs:
     - reports/models_info.json
+
+  model_registration:
+
+    cmd: python src/model/model_register.py
+    deps:
+    - reports/models_info.json
+    - src/model/model_register.py
     
     
 
