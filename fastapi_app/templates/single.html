@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Single Prediction</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Single Order Prediction</h2>
+
+    <form action="/predict" method="post">
+
+        <div class="grid">
+
+            <input type="text" name="ID" placeholder="ID" required>
+            <input type="text" name="Delivery_person_ID" placeholder="Delivery Person ID" required>
+            <input type="number" name="Delivery_person_Age" placeholder="Delivery Person Age" required>
+            <input type="number" step="0.1" name="Delivery_person_Ratings" placeholder="Ratings" required>
+
+            <input type="number" step="any" name="Restaurant_latitude" placeholder="Restaurant Latitude">
+            <input type="number" step="any" name="Restaurant_longitude" placeholder="Restaurant Longitude">
+            <input type="number" step="any" name="Delivery_location_latitude" placeholder="Delivery Location Latitude">
+            <input type="number" step="any" name="Delivery_location_longitude" placeholder="Delivery Location Longitude">
+
+            <input type="date" name="Order_Date">
+            <input type="time" name="Time_Orderd">
+            <input type="time" name="Time_Order_picked">
+
+            <select name="Weatherconditions">
+                <option value="">Weather Conditions</option>
+                <option>Sunny</option>
+                <option>Stormy</option>
+                <option>Cloudy</option>
+                <option>Fog</option>
+            </select>
+
+            <select name="Road_traffic_density">
+                <option value="">Traffic Density</option>
+                <option>Low</option>
+                <option>Medium</option>
+                <option>High</option>
+                <option>Jam</option>
+            </select>
+
+            <input type="number" name="Vehicle_condition" placeholder="Vehicle Condition">
+
+            <select name="Type_of_order">
+                <option value="">Type of Order</option>
+                <option>Snack</option>
+                <option>Meal</option>
+                <option>Drinks</option>
+            </select>
+
+            <select name="Type_of_vehicle">
+                <option value="">Vehicle Type</option>
+                <option>Bike</option>
+                <option>Scooter</option>
+            </select>
+
+            <input type="number" name="multiple_deliveries" placeholder="Multiple Deliveries">
+
+            <select name="Festival">
+                <option>No</option>
+                <option>Yes</option>
+            </select>
+
+            <select name="City">
+                <option>Urban</option>
+                <option>Metropolitan</option>
+                <option>Semi-Urban</option>
+            </select>
+
+        </div>
+
+        <button type="submit" class="btn">Predict Delivery Time</button>
+        <a href="home.html" class="link">⬅ Back to Home</a>
+
+    </form>
+</div>
+
+</body>
+</html>

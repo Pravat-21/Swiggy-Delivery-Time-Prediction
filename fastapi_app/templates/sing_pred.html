@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Single Prediction</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Single Order Prediction</h1>
+        <p>Enter order details</p>
+    </div>
+
+    <div class="nav">
+        <a href="home.html">Home</a>
+        <a href="single_prediction.html">Single Prediction</a>
+        <a href="bulk_prediction.html">Bulk Prediction</a>
+    </div>
+
+    <div class="content">
+        <form method="post">
+
+            <div class="form-grid">
+                <input placeholder="ID">
+                <input placeholder="Delivery Person ID">
+                <input type="number" placeholder="Delivery Person Age">
+                <input type="number" step="0.1" placeholder="Ratings">
+
+                <input placeholder="Restaurant Latitude">
+                <input placeholder="Restaurant Longitude">
+                <input placeholder="Delivery Location Latitude">
+                <input placeholder="Delivery Location Longitude">
+
+                <input type="date">
+                <input type="time">
+                <input type="time">
+
+                <select>
+                    <option>Weather Conditions</option>
+                    <option>Sunny</option>
+                    <option>Cloudy</option>
+                    <option>Stormy</option>
+                </select>
+
+                <select>
+                    <option>Traffic Density</option>
+                    <option>Low</option>
+                    <option>Medium</option>
+                    <option>High</option>
+                </select>
+
+                <input placeholder="Vehicle Condition">
+
+                <select>
+                    <option>Type of Order</option>
+                    <option>Snack</option>
+                    <option>Meal</option>
+                </select>
+
+                <select>
+                    <option>Type of Vehicle</option>
+                    <option>Bike</option>
+                    <option>Scooter</option>
+                </select>
+
+                <input placeholder="Multiple Deliveries">
+
+                <select>
+                    <option>Festival</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+
+                <select>
+                    <option>City</option>
+                    <option>Urban</option>
+                    <option>Metropolitan</option>
+                </select>
+            </div>
+
+            <button type="submit">Predict Delivery Time</button>
+
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

@@ -59,10 +59,10 @@ stages:
       params.yaml:
         train.LGBM:
           max_depth: 20
-          learning_rate: 0.6444557982018029
-          subsample: 0.5546625727181287
+          learning_rate: 0.6444557982018
+          subsample: 0.554662572718128
           min_child_weight: 8
-          min_split_gain: 0.2009058221053993
+          min_split_gain: 0.200905822105399
           reg_lambda: 10.798160523492442
           random_state: 42
         train.Random_Forest:
@@ -76,12 +76,12 @@ stages:
     outs:
     - path: models/final_model.pkl
       hash: md5
-      md5: 62ef05fd4980a7af463b525cd0ac912e
-      size: 96245305
+      md5: 087a79340c50bd4fc64e11ecfbb4e2fe
+      size: 96245311
     - path: models/stacking_regressor.pkl
       hash: md5
-      md5: 689fd6460bede80a7cb023dbba830398
-      size: 96222367
+      md5: 2c57e1421341672baf2336d7fe4733d8
+      size: 96222373
     - path: models/stacking_transformer.pkl
       hash: md5
       md5: 2e9b3484e69db03700bd7cfc57b5b338
@@ -96,8 +96,8 @@ stages:
       nfiles: 2
     - path: models/final_model.pkl
       hash: md5
-      md5: 62ef05fd4980a7af463b525cd0ac912e
-      size: 96245305
+      md5: 087a79340c50bd4fc64e11ecfbb4e2fe
+      size: 96245311
     - path: src/model/model_evaluation.py
       hash: md5
       md5: afc13225fcee02887e677d6963d4a625
@@ -105,18 +105,18 @@ stages:
     outs:
     - path: reports/eval_metrics.json
       hash: md5
-      md5: 955d771b11f2123a1eb1080b670c8384
-      size: 273
+      md5: e5b407c4689dd0cf8697495921736e4c
+      size: 272
     - path: reports/models_info.json
       hash: md5
-      md5: ec509a2e7b98a1b11536de8cec3731c7
+      md5: e30dd13e690d9d5d7d8ea3c23427963b
       size: 233
   model_registration:
     cmd: python src/model/model_register.py
     deps:
     - path: reports/models_info.json
       hash: md5
-      md5: ec509a2e7b98a1b11536de8cec3731c7
+      md5: e30dd13e690d9d5d7d8ea3c23427963b
       size: 233
     - path: src/model/model_register.py
       hash: md5
