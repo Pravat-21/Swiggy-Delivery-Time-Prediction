@@ -38,7 +38,7 @@ def load_model_info(file_path: str) -> dict:
 def register_model(model_name: str, model_info: dict):
     """Register the model to the MLflow Model Registry."""
     try:
-        model_uri = f"runs:/{model_info['run_id']}/{model_info['artifact_path']}/{model_info['model_name']}"
+        model_uri = f"runs:/{model_info['run_id']}/{model_info['model_name']}"
         
         # Register the model
         model_version = mlflow.register_model(model_uri, model_name)
@@ -67,11 +67,13 @@ def main():
         model_info_path = root/"reports"/"models_info.json"
 
         model_info = load_model_info(model_info_path)
+        #model_name = model_info['model_name']
+        model_name = "swiggy_reg"
 
         file_logger.info("Model_info has been fetched")
         console_logger.info("Model_info has been fetched")
 
-        register_model("swiggy_regressor",model_info)
+        register_model(model_name, model_info)
         
 
     except Exception as e:

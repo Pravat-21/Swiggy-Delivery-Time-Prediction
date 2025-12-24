@@ -155,7 +155,7 @@ def main():
             mlflow.log_metrics({f"CV-{num}": -score for num, score in enumerate(cv_scores)})
 
             model_signature = mlflow.models.infer_signature(model_input=X_train.sample(10,random_state=42),
-                                         model_output=model.predict(X_test.sample(10,random_state=42)))
+                                         model_output=model.predict(X_train.sample(10,random_state=42)))
             
             mlflow.sklearn.log_model(model,"Swiggy_delivery_time_prediction_model",signature=model_signature)
 

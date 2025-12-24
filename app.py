@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from sklearn.pipeline import Pipeline
+from dotenv import load_dotenv
 import uvicorn
 import pandas as pd
 import mlflow
@@ -24,8 +25,11 @@ from src.utils import load_processor,basic_test_data_cleaning
 file_logger = file_logging("Model_register_file")
 console_logger = console_logging("Model_register_console")
 #=======================================================================================================
+#load_dotenv()
 dagshub.init(repo_owner='Pravat-21', repo_name='Swiggy-Delivery-Time-Prediction', mlflow=True)
 mlflow.set_tracking_uri("https://dagshub.com/Pravat-21/Swiggy-Delivery-Time-Prediction.mlflow")
+
+#set_config(transform_output='pandas')
 #=======================================================================================================
 
 class Data(BaseModel):  
@@ -95,13 +99,13 @@ processor_path = root/"models"/"processor.pkl"
 
 processor = load_processor(processor_path)
 
-model_name = "swiggy_regressor"
+model_name = "swiggy_reg"
 model_version = get_latest_model_version(model_name)
 model_stage = "Staging"
 print(model_version)
 model_uri = f"models:/{model_name}/{model_version}"
-#model = mlflow.sklearn.load_model(model_uri)
-model = mlflow.pyfunc.load_model(model_uri)
+model = mlflow.sklearn.load_model(model_uri)
+#model = mlflow.pyfunc.load_model(model_uri)
 
 model_pipe = Pipeline(steps=[
 ('preprocess',processor),
@@ -142,15 +146,15 @@ def do_predictions(data: Data):
     cleaned_data = basic_test_data_cleaning(pred_data)
     df =cleaned_data.dropna()
 
-    
-
     predictions = model_pipe.predict(df)[0]
     return predictions
 
 
 
 if __name__ == "__main__":
-    uvicorn.run(app="app:app",host="0.0.0.0",port=8000)
+    uvicorn.run(app="app:app",host='0.0.0.0',port=8000)
+
+
 
     
 
