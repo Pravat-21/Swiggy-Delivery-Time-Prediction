@@ -20,15 +20,5 @@ jobs:
       run: |
         pip install -r requirements.txt
 
-    - name: DVC Pull
-      env:
-        DAGSHUB_PAT: ${{ secrets.DAGSHUB_PAT }}
-      run: |
-        dvc pull
-
-    - name: run DVC pipeline   
-      env:
-        DAGSHUB_PAT: ${{ secrets.DAGSHUB_PAT }}
-      run: |
-        dvc repro
+    
 

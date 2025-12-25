@@ -1,5 +1,5 @@
 data_cleaning:
-  test_size: 0.20
+  test_size: 0.21
 
 train:
   Random_Forest:
@@ -13,7 +13,7 @@ train:
 
   LGBM:
     max_depth: 20
-    learning_rate: 0.6444557982018
+    learning_rate: 0.64445579820181
     subsample: 0.554662572718128
     min_child_weight: 8
     min_split_gain: 0.200905822105399
