@@ -31,7 +31,6 @@ console_logger = console_logging("Model_register_console")
 dagshub.init(repo_owner='Pravat-21', repo_name='Swiggy-Delivery-Time-Prediction', mlflow=True)
 mlflow.set_tracking_uri("https://dagshub.com/Pravat-21/Swiggy-Delivery-Time-Prediction.mlflow")
 
-#set_config(transform_output='pandas')
 #=======================================================================================================
 
 class Data(BaseModel):  
