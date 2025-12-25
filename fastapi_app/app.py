@@ -6,7 +6,9 @@ from dotenv import load_dotenv
 import uvicorn
 import pandas as pd
 import mlflow
+from fastapi.responses import StreamingResponse
 import json
+import io
 import pickle
 from mlflow import MlflowClient
 from fastapi import FastAPI, Request, UploadFile, File
@@ -153,6 +155,26 @@ def do_predictions(data: Data):
     else:
         return "Please, check all the columns. You might miss to put some values."
 
+
+
+@app.post("/bulk-prediciton")
+async def predict_bulk_csv(file: UploadFile = File(...)):
+    contents = await file.read()
+    df = pd.read_csv(io.BytesIO(contents))
+    clean_df = basic_test_data_cleaning(df)
+    clean_df = clean_df.dropna()
+
+    clean_df["prediction"] = model_pipe.predict(clean_df)
+
+    stream = io.StringIO()
+    clean_df.to_csv(stream, index=False)
+    stream.seek(0)
+
+    return StreamingResponse(
+        stream,
+        media_type="text/csv",
+        headers={"Content-Disposition": "attachment; filename=predictions.csv"}
+    )
 
 
 if __name__ == "__main__":
