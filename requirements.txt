@@ -22,4 +22,5 @@ xgboost
 lightgbm
 dvc
 dvc[dagshub]
+pytest
 

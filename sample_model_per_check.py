@@ -22,7 +22,17 @@ response = requests.post(url=predict_url,json=data)
 
 print("The status code for response is", response.status_code)
 
+def is_float(res_text):
+    try:
+        float(res_text)
+        return True
+    except Exception:
+        return False
+
 if response.status_code == 200:
-    print(f"The prediction value by the API is {float(response.text):.2f} min")
+    if is_float(response.text)==False :
+        print(response.text)
+    else:
+        print(f"The prediction value by the API is {float(response.text):.2f} min")
 else:
     print("Error:", response.status_code)

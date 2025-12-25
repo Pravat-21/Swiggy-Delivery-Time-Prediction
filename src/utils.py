@@ -63,7 +63,7 @@ def basic_test_data_cleaning(df):
         # changing datatype 
         df['Delivery_person_Age'] = df['Delivery_person_Age'].astype("float")
         df['Delivery_person_Ratings'] = df['Delivery_person_Ratings'].astype("float")
-        df['Order_Date'] = pd.to_datetime(df['Order_Date'])
+        df['Order_Date'] = pd.to_datetime(df['Order_Date'],dayfirst=True)
         df['multiple_deliveries'] = df['multiple_deliveries'].astype("float")
 
         # applying harversine distance

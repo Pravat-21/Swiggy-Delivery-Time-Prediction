@@ -93,7 +93,7 @@ def get_latest_model_version(model_name):
         console_logger.error(f'Unexpected error occurred while get_latest_model_version: {e}')
         raise CustomException(e,sys)
     
-root = Path(__file__).parent
+root = Path(__file__).parent.parent
 
 processor_path = root/"models"/"processor.pkl"
 
@@ -146,8 +146,12 @@ def do_predictions(data: Data):
     cleaned_data = basic_test_data_cleaning(pred_data)
     df =cleaned_data.dropna()
 
-    predictions = model_pipe.predict(df)[0]
-    return predictions
+    if len(df) != 0:
+
+        predictions = model_pipe.predict(df)[0]
+        return predictions
+    else:
+        return "Please, check all the columns. You might miss to put some values."
 
 
 
