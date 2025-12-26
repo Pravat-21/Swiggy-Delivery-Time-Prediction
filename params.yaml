@@ -13,9 +13,9 @@ train:
 
   LGBM:
     max_depth: 20
-    learning_rate: 0.64445579820181
-    subsample: 0.554662572718128
+    learning_rate: 0.64445579820182
+    subsample: 0.554662572718129
     min_child_weight: 8
-    min_split_gain: 0.200905822105399
+    min_split_gain: 0.200905822105395
     reg_lambda: 10.798160523492442
-    random_state: 42
+    random_state: 41

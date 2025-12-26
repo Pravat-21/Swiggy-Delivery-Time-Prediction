@@ -5,9 +5,9 @@ stages:
     deps:
     - path: data/raw
       hash: md5
-      md5: 5954926173e76ce2b956f500542c8e60.dir
+      md5: e943a356942030e3911367b7364f5de9.dir
       size: 9578343
-      nfiles: 3
+      nfiles: 2
     - path: src/data/data_cleaning.py
       hash: md5
       md5: 6a73910637b622acd52a027b67fe4729
@@ -59,12 +59,12 @@ stages:
       params.yaml:
         train.LGBM:
           max_depth: 20
-          learning_rate: 0.64445579820181
-          subsample: 0.554662572718128
+          learning_rate: 0.64445579820182
+          subsample: 0.554662572718129
           min_child_weight: 8
-          min_split_gain: 0.200905822105399
+          min_split_gain: 0.200905822105395
           reg_lambda: 10.798160523492442
-          random_state: 42
+          random_state: 41
         train.Random_Forest:
           n_estimators: 908
           max_depth: 18
@@ -76,12 +76,12 @@ stages:
     outs:
     - path: models/final_model.pkl
       hash: md5
-      md5: 97e2b50af16f5ea18121e1c467caec0a
-      size: 95088899
+      md5: 78eb24003a09658bdeead3d5f2a959db
+      size: 95088882
     - path: models/stacking_regressor.pkl
       hash: md5
-      md5: 14066e637e768a044d412ddc310ad9a6
-      size: 95065961
+      md5: f2c837a3e2a0af51195ed4774535c1f0
+      size: 95065944
     - path: models/stacking_transformer.pkl
       hash: md5
       md5: d43e7797bb5cdee0dc6d78697a7bc06f
@@ -96,8 +96,8 @@ stages:
       nfiles: 2
     - path: models/final_model.pkl
       hash: md5
-      md5: 97e2b50af16f5ea18121e1c467caec0a
-      size: 95088899
+      md5: 78eb24003a09658bdeead3d5f2a959db
+      size: 95088882
     - path: src/model/model_evaluation.py
       hash: md5
       md5: 11302dba284177be91fe8c0734384bae
@@ -105,18 +105,18 @@ stages:
     outs:
     - path: reports/eval_metrics.json
       hash: md5
-      md5: dd481ba0ff73ae33bc2a56f9ca50688a
-      size: 273
+      md5: fbf6610e16fb4013b1d6a21509f4af4c
+      size: 271
     - path: reports/models_info.json
       hash: md5
-      md5: f67e497ea1685bcd273a2edbb416c08a
+      md5: d381394a94cf40e12ff352fcc01e429d
       size: 233
   model_registration:
     cmd: python src/model/model_register.py
     deps:
     - path: reports/models_info.json
       hash: md5
-      md5: f67e497ea1685bcd273a2edbb416c08a
+      md5: d381394a94cf40e12ff352fcc01e429d
       size: 233
     - path: src/model/model_register.py
       hash: md5
